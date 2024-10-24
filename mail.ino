@@ -1,3 +1,24 @@
+/*
+  NodeMCU (ESP8266) with Temperature and Pressure Sensors
+  --------------------------------------------------------
+  Connections:
+  
+  Temperature Sensor:
+    + (VCC)   -> 3V3
+    G (GND)   -> GND
+    SCL       -> D1
+    SDA       -> D2
+    
+  Pressure Sensor:
+    VCC       -> 3V3
+    GND       -> GND
+    SCK       -> D5
+    OUT       -> D6
+  Water Level Sensor:
+    +         ->3V3
+    -         ->GND
+    S         ->A0
+*/
 #include <Arduino.h>
 #if defined(ESP32) || defined(ARDUINO_RASPBERRY_PI_PICO_W)
 #include <WiFi.h>
@@ -16,11 +37,11 @@
 #include <Wire.h>
 #include <Adafruit_BMP085.h> // Include BMP180 library
 
-#define WIFI_SSID "GITAM"
+#define WIFI_SSID "GITAM" 
 #define WIFI_PASSWORD "Gitam$$123"
-#define USERNAME "GeetanjaliD"
-#define DEVICE_ID "nodemcu"
-#define DEVICE_CREDENTIAL "542OSb%QCBHQC?wA"
+#define USERNAME "GeetanjaliD" //your thinger io account
+#define DEVICE_ID "nodemcu"    // your thinger io device id
+#define DEVICE_CREDENTIAL "542OSb%QCBHQC?wA"  // your thinger io device credential
 
 ThingerESP8266 thing(USERNAME, DEVICE_ID, DEVICE_CREDENTIAL);
 
@@ -28,11 +49,11 @@ ThingerESP8266 thing(USERNAME, DEVICE_ID, DEVICE_CREDENTIAL);
 #define SMTP_PORT esp_mail_smtp_port_587 // port 465 is not available for Outlook.com
 
 /* The log in credentials */
-#define AUTHOR_EMAIL "npallapo@gitam.in"
-#define AUTHOR_PASSWORD "hfhxvlwepregirgk"
+#define AUTHOR_EMAIL "your email account"
+#define AUTHOR_PASSWORD "your email password"
 
 /* Recipient email address */
-#define RECIPIENT_EMAIL "nikkipallapothula596@gmail.com"
+#define RECIPIENT_EMAIL "your recipient email account"
 
 /* Declare the global used SMTPSession object for SMTP transport */
 SMTPSession smtp;
